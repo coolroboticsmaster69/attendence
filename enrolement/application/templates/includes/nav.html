@@ -1,11 +1,16 @@
-<header>
+    <header>
         <nav>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="{{ url_for('batches') }}" class="nav-link">Batches</a></li>
-                <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link">Register</a></li>
-                <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link">Login</a></li>
-                <li class="nav-item"><a href="{{ url_for('attendence') }}" class="nav-link">Attendence</a></li>
+                <li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link {% if index %}active{% endif %}">Home</a></li>
+                <li class="nav-item"><a href="{{ url_for('batches') }}" class="nav-link {% if batch %}active{% endif %}">Batches</a></li>
+                <li class="nav-item"><a href="{{ url_for('register') }}" class="nav-link {% if register %}active{% endif %}">Register</a></li>
+                <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link {% if login1 %}active{% endif %}">Login</a></li>
+                {% if login %}
+                <li class="nav-item"><a href="{{ url_for('attendence') }}" class="nav-link {% if attendence %}active{% endif %}">Attendence</a></li>
+                {% else %}
+
+                {% endif %}
+                <li class="nav-item"><a href="{{ url_for('inventors') }}" class="nav-link {% if inventors %}active{% endif %}">Inventors</a></li>
             </ul>
         </nav>
         <hr style="clear:both">
